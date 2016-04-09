@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import AltContainer from 'alt-container';
 
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+
 import Lanes from './Lanes.jsx';
 import LaneActions from '../actions/LaneActions';
-import LaneStore from '../stores/LaneStore';
+import LaneStore from '../stores/LaneStore.jsx';
 
-export default class App extends React.Component {
+class App extends React.Component {
     render() {
         return (
             <div>
@@ -23,3 +26,5 @@ export default class App extends React.Component {
         LaneActions.create({name: 'New lane'});
     }
 }
+
+export default DragDropContext(HTML5Backend)(App);
