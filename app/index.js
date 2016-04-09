@@ -2,6 +2,8 @@
  * Created by elod on 4/8/16.
  */
 
+require('./css/main.css');
+
 var component = require('./component');
 var app = document.createElement('div');
 

@@ -5,7 +5,7 @@
 module.exports = function () {
     var element = document.createElement('h1');
 
-    element.innerHTML = 'Hello World 5';
+    element.innerHTML = 'Hello World 3';
 
     return element;
 };
