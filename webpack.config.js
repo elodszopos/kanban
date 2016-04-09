@@ -14,24 +14,27 @@ var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'app');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
+process.env.BABEL_ENV = TARGET;
+
 var common = {
     entry: APP_PATH,
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    },
     output: {
         path: BUILD_PATH,
         filename: 'bundle.js'
     },
     module: {
-        preLoaders: [
-            {
-                test: /\.js?$/,
-                loaders: ['eslint'],
-                include: APP_PATH
-            }
-        ],
         loaders: [
             {
                 test: /\.css$/,
                 loaders: ['style', 'css'],
+                include: APP_PATH
+            },
+            {
+                test: /\.jsx?$/,
+                loaders: ['babel'],
                 include: APP_PATH
             }
         ]
@@ -46,7 +49,7 @@ var common = {
         new HtmlWebpackPlugin({
             title: 'Kanban App'
         }),
-        new webpack.HotModuleReplacementPlugin(),
+        new webpack.HotModuleReplacementPlugin()
         //new openBrowserPlugin({url: 'http://localhost:8080/'})
     ]
 };
