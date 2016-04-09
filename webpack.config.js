@@ -48,8 +48,7 @@ var common = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Kanban App'
-        }),
-        new webpack.HotModuleReplacementPlugin()
+        })
         //new openBrowserPlugin({url: 'http://localhost:8080/'})
     ]
 };
@@ -63,6 +62,7 @@ if (TARGET === 'start' || !TARGET) {
             inline: true,
             progress: true
         }, plugins: [
-            new webpack.HotModuleReplacementPlugin()]
+            new webpack.HotModuleReplacementPlugin()
+        ]
     });
 }
