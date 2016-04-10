@@ -15,7 +15,7 @@ class App extends React.Component {
             <div>
                 <button className="add-lane" onClick={this.addItem}> + </button>
                 <AltContainer stores={[LaneStore]}
-                              inject={ {items: () => LaneStore.getState().lanes || [] }}>
+                              inject={ {items: () => LaneStore.getState().lanes }}>
                     <Lanes />
                 </AltContainer>
             </div>

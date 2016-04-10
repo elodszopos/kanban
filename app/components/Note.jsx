@@ -40,6 +40,18 @@ class Note extends React.Component {
     }
 }
 
+Note.propTypes = {
+    id: React.PropTypes.string.isRequired,
+    connectDragSource: React.PropTypes.func,
+    connectDropSource: React.PropTypes.func,
+    onMove: React.PropTypes.func
+};
+
+Note.defaultProps = {
+    onMove: () => {
+    }
+};
+
 export default DragSource(ItemTypes.NOTE, noteSource, (connect, monitor) => ({
     connectDragSource: connect.dragSource(),
     isDragging: monitor.isDragging()
